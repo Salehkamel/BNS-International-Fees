@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BNS International Division — 2026/2027</title>
+<style>
+  /* ── SYSTEM FONT STACKS — no internet required ───────────────────────────
+     Display (serif): Didot on iOS/Mac → Palatino on Windows → Georgia fallback
+     Body (sans):     Gill Sans on iOS/Mac → Trebuchet MS on Windows → system-ui
+  ─────────────────────────────────────────────────────────────────────── */
+  :root {
+    --font-display: 'Didot', 'Bodoni MT', 'Palatino Linotype', 'Palatino', 'Book Antiqua', Georgia, serif;
+    --font-body:    'Gill Sans', 'Gill Sans MT', 'Optima', 'Trebuchet MS', Calibri, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0C1A2E;
+    --navy-mid: #152540;
+    --navy-light: #1E3256;
+    --gold: #C4952A;
+    --gold-light: #E8BE6A;
+    --gold-pale: #F5E6C3;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --text-light: #8DA0B8;
+    --text-mid: #CBD5E1;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,149,42,0.18) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(196,149,42,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* geometric lines */
+  .hero-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-lines svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.06;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    margin-bottom: 36px;
+    position: relative;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-badge::before,
+  .hero-badge::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-badge::before { right: calc(100% + 12px); }
+  .hero-badge::after  { left:  calc(100% + 12px); }
+
+  .hero-logo-ring {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid rgba(196,149,42,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    position: relative;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero-logo-ring::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,42,0.25);
+  }
+  .hero-logo-ring span {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+  .hero-divider span { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .hero-divider span:last-child { background: linear-gradient(90deg, var(--gold), transparent); }
+  .hero-divider i {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    display: block;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-mid);
+    max-width: 600px;
+    line-height: 1.7;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-year {
+    margin-top: 60px;
+    display: flex;
+    gap: 48px;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+  .hero-year-item { text-align: center; }
+  .hero-year-item .num {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .hero-year-item .lbl {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: block;
+    margin-top: 6px;
+  }
+  .sep { width: 1px; background: rgba(196,149,42,0.25); align-self: stretch; }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+  .scroll-hint .arrow {
+    width: 18px; height: 18px;
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    transform: rotate(45deg);
+    animation: bounce 1.6s infinite;
+  }
+
+  /* ── SECTION WRAPPER ──────────────────── */
+  .section {
+    padding: 90px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-rule {
+    width: 50px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    margin: 20px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ── INTRO BAND ───────────────────────── */
+  .intro-band {
+    background: var(--navy);
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .intro-band p {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-mid);
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .intro-band p strong {
+    color: var(--gold-light);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ── DIVISION TOGGLE TABS ─────────────── */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 60px;
+  }
+  .tab-btn {
+    padding: 14px 40px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid rgba(12,26,46,0.2);
+    background: transparent;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+  }
+  .tab-btn:first-child { border-radius: 2px 0 0 2px; }
+  .tab-btn:last-child  { border-radius: 0 2px 2px 0; border-left: none; }
+  .tab-btn.active {
+    background: var(--navy);
+    color: var(--gold-light);
+    border-color: var(--navy);
+  }
+
+  /* ── DIVISION PANEL ───────────────────── */
+  .division-panel { display: none; }
+  .division-panel.active { display: block; }
+
+  /* ── PRICING HERO CARD ────────────────── */
+  .price-hero {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 50px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,42,0.15);
+  }
+  .price-hero::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 1px solid rgba(196,149,42,0.1);
+  }
+  .price-hero-text h2 {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .price-hero-text p {
+    color: var(--text-light);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    max-width: 380px;
+    line-height: 1.7;
+  }
+  .price-hero-amount {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .price-hero-amount .strike {
+    font-size: 13px;
+    color: var(--text-light);
+    text-decoration: line-through;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .price-hero-amount .official {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .price-hero-amount .currency {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-light);
+    letter-spacing: 2px;
+  }
+
+  /* ── SCHOLARSHIP GRID ─────────────────── */
+  .schol-group { margin-bottom: 40px; }
+  .schol-group-title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(196,149,42,0.2);
+  }
+  .schol-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .schol-card {
+    background: var(--white);
+    border: 1px solid rgba(12,26,46,0.08);
+    border-radius: 4px;
+    padding: 28px 28px 24px;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .schol-card:hover {
+    box-shadow: 0 12px 40px rgba(12,26,46,0.10);
+    transform: translateY(-2px);
+  }
+  .schol-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #fffdf7, #fff9ed);
+  }
+  .schol-card.featured::before {
+    content: 'TOP SCHOLARSHIP';
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 5px 12px;
+    border-radius: 0 3px 0 4px;
+  }
+  .schol-category {
+    font-size: 13px;
+    font-weight: 400;
+    color: #5A7094;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    min-height: 38px;
+  }
+  .schol-pct {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .schol-pct-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    display: block;
+  }
+  .schol-final {
+    padding-top: 16px;
+    border-top: 1px solid rgba(12,26,46,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .schol-final .lbl { font-size: 11px; color: #8DA0B8; letter-spacing: 1px; }
+  .schol-final .amt {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .schol-final .amt span { font-size: 12px; font-weight: 400; color: var(--text-light); }
+
+  /* special quran card */
+  .schol-card.quran {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-color: transparent;
+    color: var(--white);
+  }
+  .schol-card.quran .schol-category { color: var(--text-light); }
+  .schol-card.quran .schol-pct { color: var(--gold-light); }
+  .schol-card.quran .schol-pct-label { color: rgba(255,255,255,0.4); }
+  .schol-card.quran .schol-final { border-color: rgba(255,255,255,0.1); }
+  .schol-card.quran .schol-final .lbl { color: rgba(255,255,255,0.4); }
+  .schol-card.quran .schol-final .amt { color: var(--white); }
+  .schol-card.quran .schol-final .amt span { color: rgba(255,255,255,0.4); }
+
+  /* ── GOLDEN YEAR BANNER ───────────────── */
+  .golden-banner {
+    background: linear-gradient(135deg, #1a2a12 0%, #2a3d18 50%, #1a2a12 100%);
+    border-radius: 4px;
+    padding: 48px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .golden-banner::before {
+    content: '★';
+    position: absolute;
+    top: -20px; right: 40px;
+    font-size: 200px;
+    color: rgba(196,149,42,0.05);
+    line-height: 1;
+  }
+  .golden-banner-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  .golden-star {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .golden-banner-header h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--gold-light);
+  }
+  .golden-banner-header h3 span {
+    display: block;
+    font-size: 11px;
+    font-family: var(--font-body);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(232,190,106,0.6);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .golden-perks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .perk {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(196,149,42,0.2);
+    border-radius: 3px;
+    padding: 20px;
+  }
+  .perk-pct {
+    font-family: var(--font-display);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    display: block;
+  }
+  .perk-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    margin-top: 6px;
+  }
+
+  /* ── SUBJECT FEES TABLE ───────────────── */
+  .fees-table-wrap {
+    background: var(--white);
+    border: 1px solid rgba(12,26,46,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .fees-table-head {
+    background: var(--navy);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .fees-table-head h4 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+  }
+  .fees-table-head .tag {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(196,149,42,0.4);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 600;
+    padding: 14px 32px;
+    text-align: left;
+    background: #F7F9FC;
+    border-bottom: 1px solid rgba(12,26,46,0.06);
+  }
+  tbody tr {
+    border-bottom: 1px solid rgba(12,26,46,0.05);
+    transition: background 0.2s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #F7F9FC; }
+  tbody td {
+    padding: 18px 32px;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  tbody td:last-child {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .level-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-left: 8px;
+  }
+  .badge-ol  { background: #EEF2FF; color: #4A5FB8; }
+  .badge-as  { background: #FFF4E6; color: #B86A10; }
+  .badge-a2  { background: #FFF4E6; color: #B86A10; }
+  .badge-al  { background: #F0FDF4; color: #166534; }
+
+  /* ── INSTALLMENT SECTION ──────────────── */
+  .installment-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 640px) { .installment-wrap { grid-template-columns: 1fr; } }
+
+  .install-card {
+    background: var(--white);
+    border: 1px solid rgba(12,26,46,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .install-card-head {
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(12,26,46,0.06);
+  }
+  .install-card-head h4 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+  }
+  .install-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(12,26,46,0.05);
+    font-size: 13px;
+  }
+  .install-row:last-child { border-bottom: none; }
+  .install-row .desc { color: #5A7094; line-height: 1.5; }
+  .install-row .pct {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .fees-card {
+    background: var(--white);
+    border: 1px solid rgba(12,26,46,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .fees-card-head {
+    padding: 18px 24px;
+    border-bottom: 1px solid rgba(12,26,46,0.06);
+  }
+  .fees-card-head h4 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+  }
+  .fee-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(12,26,46,0.05);
+    font-size: 13px;
+    color: #5A7094;
+  }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row .amt {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  /* ── NOTES ────────────────────────────── */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .note-card {
+    background: var(--white);
+    border: 1px solid rgba(12,26,46,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 20px 20px 24px;
+    font-size: 13px;
+    color: #5A7094;
+    line-height: 1.7;
+  }
+  .note-card strong {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  /* ── ADDL SERVICES ────────────────────── */
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 60px;
+  }
+  .service-pill {
+    background: var(--white);
+    border: 1px solid rgba(12,26,46,0.1);
+    border-radius: 40px;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .service-pill::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ───────────────────────────── */
+  .footer {
+    background: var(--navy);
+    padding: 60px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(196,149,42,0.4), transparent);
+  }
+  .footer-quote {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-mid);
+    max-width: 600px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+  .footer-quote em { color: var(--gold-light); font-style: normal; }
+  .footer-note {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+  }
+
+  /* ── ANIMATIONS ───────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50%       { transform: rotate(45deg) translateY(6px); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ───────────────────────── */
+  @media (max-width: 768px) {
+    .price-hero {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 32px 24px;
+    }
+    .price-hero-amount { text-align: left; }
+    .golden-banner { padding: 32px 24px; }
+    .hero-year { gap: 28px; }
+  }
+  @media (max-width: 480px) {
+    .hero-badge::before, .hero-badge::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-lines">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <line x1="0" y1="200" x2="1200" y2="400" stroke="#C4952A" stroke-width="1"/>
+      <line x1="0" y1="600" x2="1200" y2="200" stroke="#C4952A" stroke-width="1"/>
+      <line x1="600" y1="0" x2="600" y2="800" stroke="#C4952A" stroke-width="1"/>
+      <circle cx="600" cy="400" r="250" stroke="#C4952A" stroke-width="1" fill="none"/>
+      <circle cx="600" cy="400" r="380" stroke="#C4952A" stroke-width="0.5" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="hero-badge">Academic Year 2026 / 2027</div>
+
+  <div class="hero-logo-ring">
+    <span>BNS</span>
+  </div>
+
+  <h1>Bright Nozha Schools<br><em>International Division</em></h1>
+  <p class="hero-sub">British &amp; American Divisions</p>
+
+  <div class="hero-divider">
+    <span></span><i></i><span></span>
+  </div>
+
+  <p class="hero-tagline">
+    "From Legacy to a Bright Future — nearly four decades of academic excellence, now opening pathways to the world."
+  </p>
+
+  <div class="hero-year">
+    <div class="hero-year-item">
+      <span class="num">38<sup style="font-size:18px">+</sup></span>
+      <span class="lbl">Years of Excellence</span>
+    </div>
+    <div class="sep"></div>
+    <div class="hero-year-item">
+      <span class="num">2</span>
+      <span class="lbl">Divisions</span>
+    </div>
+    <div class="sep"></div>
+    <div class="hero-year-item">
+      <span class="num">50%</span>
+      <span class="lbl">Max Scholarship</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="arrow"></div>
+    Explore Fees
+  </div>
+</section>
+
+<!-- ── INTRO ─────────────────────────────────── -->
+<div class="intro-band">
+  <p>
+    In response to the aspirations of parents and students for <strong>wider educational pathways</strong> and internationally recognized opportunities, Bright Nozha Schools is proud to open admissions for its new <strong>International Division</strong> — offering exclusive <strong>Founding Golden Year</strong> privileges to all inaugural students.
+  </p>
+</div>
+
+<!-- ── DIVISIONS ─────────────────────────────── -->
+<div class="section">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Tuition Structure</span>
+    <h2 class="section-title">Choose Your <em>Division</em></h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="tabs reveal">
+    <button class="tab-btn active" onclick="switchTab('british')">British Division — IGCSE</button>
+    <button class="tab-btn" onclick="switchTab('american')">American Division</button>
+  </div>
+
+  <!-- BRITISH PANEL -->
+  <div class="division-panel active" id="panel-british">
+
+    <div class="price-hero reveal">
+      <div class="price-hero-text">
+        <h2>Year 10 &amp; Year 11 Package</h2>
+        <p>Includes 5 OL Subjects + Annual School Fees. Founding scholarships apply automatically for eligible students.</p>
+      </div>
+      <div class="price-hero-amount">
+        <span class="strike">Official Rate</span>
+        <span class="official">160,000</span>
+        <span class="currency">EGP / YEAR</span>
+      </div>
+    </div>
+
+    <!-- Current BNS Students -->
+    <div class="schol-group reveal">
+      <div class="schol-group-title">Current BNS Students — Founding Scholarships</div>
+      <div class="schol-cards">
+        <div class="schol-card featured">
+          <p class="schol-category">Students scoring <strong>97%+</strong> in the Third Preparatory Certificate</p>
+          <span class="schol-pct">50%</span>
+          <span class="schol-pct-label">Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Final Fees</span>
+            <span class="amt">80,000 <span>EGP</span></span>
+          </div>
+        </div>
+        <div class="schol-card">
+          <p class="schol-category">All other current BNS students</p>
+          <span class="schol-pct">45%</span>
+          <span class="schol-pct-label">Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Final Fees</span>
+            <span class="amt">88,000 <span>EGP</span></span>
+          </div>
+        </div>
+        <div class="schol-card quran">
+          <p class="schol-category">BNS students who have fully memorized the Holy Quran</p>
+          <span class="schol-pct">+20K</span>
+          <span class="schol-pct-label">Extra EGP on Merit Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Award Type</span>
+            <span class="amt">Merit-Based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- External Students -->
+    <div class="schol-group reveal">
+      <div class="schol-group-title">External Students — Founding Scholarships</div>
+      <div class="schol-cards">
+        <div class="schol-card featured">
+          <p class="schol-category">Students scoring <strong>97%+</strong> in the Third Preparatory Certificate</p>
+          <span class="schol-pct">40%</span>
+          <span class="schol-pct-label">Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Final Fees</span>
+            <span class="amt">96,000 <span>EGP</span></span>
+          </div>
+        </div>
+        <div class="schol-card">
+          <p class="schol-category">All other external students</p>
+          <span class="schol-pct">25%</span>
+          <span class="schol-pct-label">Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Final Fees</span>
+            <span class="amt">120,000 <span>EGP</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Golden Year -->
+    <div class="golden-banner reveal">
+      <div class="golden-banner-header">
+        <div class="golden-star">⭐</div>
+        <h3>Founding Golden Year Privileges
+          <span>Exclusive benefits — locked in for your entire high school journey</span>
+        </h3>
+      </div>
+      <div class="golden-perks">
+        <div class="perk">
+          <span class="perk-pct">50%</span>
+          <p class="perk-desc">Off Annual School Fees — for all years following your package year</p>
+        </div>
+        <div class="perk">
+          <span class="perk-pct">20%</span>
+          <p class="perk-desc">Off Academic Subject Fees — year after year until graduation</p>
+        </div>
+        <div class="perk">
+          <span class="perk-pct">∞</span>
+          <p class="perk-desc">Privileges retained through Year 11 &amp; Year 12, whether continuing or joining from another IGCSE school</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subject Fees -->
+    <div class="fees-table-wrap reveal">
+      <div class="fees-table-head">
+        <h4>Subject Fees</h4>
+        <span class="tag">Per Subject</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Subject Level</th>
+            <th>Description</th>
+            <th style="text-align:right;padding-right:32px">Fees (EGP)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OL Subject <span class="level-badge badge-ol">O Level</span></td>
+            <td style="color:#8DA0B8;font-size:13px">Ordinary Level</td>
+            <td style="text-align:right;padding-right:32px">25,000</td>
+          </tr>
+          <tr>
+            <td>AS Subject <span class="level-badge badge-as">AS</span></td>
+            <td style="color:#8DA0B8;font-size:13px">Advanced Subsidiary</td>
+            <td style="text-align:right;padding-right:32px">33,000</td>
+          </tr>
+          <tr>
+            <td>A2 Subject <span class="level-badge badge-a2">A2</span></td>
+            <td style="color:#8DA0B8;font-size:13px">Second Year Advanced</td>
+            <td style="text-align:right;padding-right:32px">33,000</td>
+          </tr>
+          <tr>
+            <td>AL Subject <span class="level-badge badge-al">A Level</span></td>
+            <td style="color:#8DA0B8;font-size:13px">Full Advanced Level</td>
+            <td style="text-align:right;padding-right:32px">54,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fees-table-wrap reveal" style="margin-bottom:0">
+      <div class="fees-table-head">
+        <h4>Annual School Fees</h4>
+        <span class="tag">From Year 11</span>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              Annual School Fees
+              <span style="display:block;font-size:12px;color:#8DA0B8;margin-top:4px">Includes all required Governmental Subjects per Ministry of Education regulations</span>
+            </td>
+            <td style="text-align:right;padding-right:32px">35,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /british panel -->
+
+  <!-- AMERICAN PANEL -->
+  <div class="division-panel" id="panel-american">
+
+    <div class="price-hero reveal">
+      <div class="price-hero-text">
+        <h2>American Division</h2>
+        <p>Founding scholarships apply automatically. Students retain their granted scholarship percentage throughout their entire educational journey until graduation.</p>
+      </div>
+      <div class="price-hero-amount">
+        <span class="strike">Official Rate</span>
+        <span class="official">180,000</span>
+        <span class="currency">EGP / YEAR</span>
+      </div>
+    </div>
+
+    <!-- Current BNS Students -->
+    <div class="schol-group reveal">
+      <div class="schol-group-title">Current BNS Students — Founding Scholarships</div>
+      <div class="schol-cards">
+        <div class="schol-card featured">
+          <p class="schol-category">All current BNS Students</p>
+          <span class="schol-pct">50%</span>
+          <span class="schol-pct-label">Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Final Fees</span>
+            <span class="amt">90,000 <span>EGP</span></span>
+          </div>
+        </div>
+        <div class="schol-card quran">
+          <p class="schol-category">BNS students who have fully memorized the Holy Quran</p>
+          <span class="schol-pct">+20K</span>
+          <span class="schol-pct-label">Extra EGP on Merit Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Award Type</span>
+            <span class="amt">Merit-Based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- External Students -->
+    <div class="schol-group reveal">
+      <div class="schol-group-title">External Students — Founding Scholarships</div>
+      <div class="schol-cards">
+        <div class="schol-card featured">
+          <p class="schol-category">All external students</p>
+          <span class="schol-pct">40%</span>
+          <span class="schol-pct-label">Scholarship</span>
+          <div class="schol-final">
+            <span class="lbl">Final Fees</span>
+            <span class="amt">110,000 <span>EGP</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Golden Year -->
+    <div class="golden-banner reveal">
+      <div class="golden-banner-header">
+        <div class="golden-star">⭐</div>
+        <h3>Founding Golden Year Privileges
+          <span>Your scholarship percentage stays with you — all the way to graduation</span>
+        </h3>
+      </div>
+      <div class="golden-perks">
+        <div class="perk">
+          <span class="perk-pct">Lifetime</span>
+          <p class="perk-desc">Granted scholarship percentages are locked and continue through your entire educational journey at BNS</p>
+        </div>
+        <div class="perk">
+          <span class="perk-pct">2026</span>
+          <p class="perk-desc">Join now as a Founding Year student and benefit from the most exclusive intake in BNS history</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /american panel -->
+</div><!-- /section -->
+
+<!-- ── COMMON POLICIES ──────────────────────── -->
+<div style="background:#F0EDE8;padding:1px 0">
+<div class="section">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Common Policies</span>
+    <h2 class="section-title">Payment &amp; <em>Additional Fees</em></h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="installment-wrap">
+    <div class="install-card reveal">
+      <div class="install-card-head">
+        <h4>Installment Plan</h4>
+      </div>
+      <div class="install-row">
+        <span class="desc">First installment<br><span style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#B0BECC">Within 10 days of acceptance</span></span>
+        <span class="pct">40%</span>
+      </div>
+      <div class="install-row">
+        <span class="desc">Second installment<br><span style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#B0BECC">Before 1 September</span></span>
+        <span class="pct">30%</span>
+      </div>
+      <div class="install-row">
+        <span class="desc">Third installment<br><span style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#B0BECC">Before 1 December</span></span>
+        <span class="pct">30%</span>
+      </div>
+    </div>
+
+    <div class="fees-card reveal">
+      <div class="fees-card-head">
+        <h4>Registration Fees</h4>
+      </div>
+      <div class="fee-row">
+        <span>Placement Test Fee</span>
+        <span class="amt">1,000 <span style="font-size:12px;color:#8DA0B8">EGP</span></span>
+      </div>
+      <div class="fee-row">
+        <span>Registration Fee (after acceptance)</span>
+        <span class="amt">5,000 <span style="font-size:12px;color:#8DA0B8">EGP</span></span>
+      </div>
+      <div style="padding:18px 24px;background:#FFF9EF;border-top:1px solid rgba(196,149,42,0.15)">
+        <p style="font-size:12px;color:#9A7A40;line-height:1.6">
+          ⚠ Registration &amp; application fees are non-refundable.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Services -->
+  <div class="reveal">
+    <div class="schol-group-title" style="margin-bottom:20px">Additional Services (as required)</div>
+    <div class="services-list">
+      <div class="service-pill">Transportation</div>
+      <div class="service-pill">School Uniform</div>
+      <div class="service-pill">Books &amp; Digital Platforms</div>
+      <div class="service-pill">External Examination Fees</div>
+      <div class="service-pill">Activities</div>
+      <div class="service-pill">Practical Subject Fees</div>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="reveal">
+    <div class="schol-group-title" style="margin-bottom:20px">Important Notes</div>
+    <div class="notes-grid">
+      <div class="note-card"><strong>Non-Refundable</strong>Registration and application fees are non-refundable under all circumstances.</div>
+      <div class="note-card"><strong>Annual Review</strong>Tuition fees are subject to annual review and approval for subsequent years.</div>
+      <div class="note-card"><strong>External Exams</strong>Fees charged by external examination boards are not included in tuition packages.</div>
+      <div class="note-card"><strong>Subject Availability</strong>Availability of subjects depends on minimum enrollment capacity being met.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<div class="footer">
+  <div class="footer-logo">BRIGHT NOZHA SCHOOLS</div>
+  <p class="footer-quote">
+    "We proudly welcome the <em>Founding Golden Year</em> intake to become part of a remarkable new chapter in the history of Bright Nozha Schools."
+  </p>
+  <p class="footer-note">International Division — Academic Year 2026 / 2027</p>
+</div>
+
+<script>
+  // Tab switching
+  function switchTab(div) {
+    document.querySelectorAll('.tab-btn').forEach((b, i) => {
+      b.classList.toggle('active', (i === 0 && div === 'british') || (i === 1 && div === 'american'));
+    });
+    document.querySelectorAll('.division-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + div).classList.add('active');
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
